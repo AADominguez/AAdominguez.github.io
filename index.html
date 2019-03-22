@@ -62,6 +62,44 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
+         function pop_Jerarquizacion_ciclorutas_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['condicion'] !== null ? Autolinker.link(String(feature.properties['condicion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['prioridad'] !== null ? Autolinker.link(String(feature.properties['prioridad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nombre'] !== null ? Autolinker.link(String(feature.properties['nombre'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Jerarquizacion_ciclorutas_4_0() {
+            return {
+                pane: 'pane_Jerarquizacion_ciclorutas_4',
+                opacity: 1,
+                color: 'rgba(238,127,7,1.0)',
+                dashArray: '10,5,1,5',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_Jerarquizacion_ciclorutas_4');
+        map.getPane('pane_Jerarquizacion_ciclorutas_4').style.zIndex = 404;
+        map.getPane('pane_Jerarquizacion_ciclorutas_4').style['mix-blend-mode'] = 'normal';
+        var layer_Jerarquizacion_ciclorutas_4 = new L.geoJson(json_Jerarquizacion_ciclorutas_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Jerarquizacion_ciclorutas_4',
+            onEachFeature: pop_Jerarquizacion_ciclorutas_4,
+            style: style_Jerarquizacion_ciclorutas_4_0,
+        });
+        bounds_group.addLayer(layer_Jerarquizacion_ciclorutas_4);
+        map.addLayer(layer_Jerarquizacion_ciclorutas_4);    
         function pop_Comunas_0(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -372,44 +410,7 @@
         bounds_group.addLayer(layer_Jerarquizacion_vial_3);
         map.addLayer(layer_Jerarquizacion_vial_3);
          
-      function pop_Jerarquizacion_ciclorutas_4(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['condicion'] !== null ? Autolinker.link(String(feature.properties['condicion'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['prioridad'] !== null ? Autolinker.link(String(feature.properties['prioridad'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['nombre'] !== null ? Autolinker.link(String(feature.properties['nombre'])) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_Jerarquizacion_ciclorutas_4_0() {
-            return {
-                pane: 'pane_Jerarquizacion_ciclorutas_4',
-                opacity: 1,
-                color: 'rgba(238,127,7,1.0)',
-                dashArray: '10,5,1,5',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-            }
-        }
-        map.createPane('pane_Jerarquizacion_ciclorutas_4');
-        map.getPane('pane_Jerarquizacion_ciclorutas_4').style.zIndex = 404;
-        map.getPane('pane_Jerarquizacion_ciclorutas_4').style['mix-blend-mode'] = 'normal';
-        var layer_Jerarquizacion_ciclorutas_4 = new L.geoJson(json_Jerarquizacion_ciclorutas_4, {
-            attribution: '<a href=""></a>',
-            pane: 'pane_Jerarquizacion_ciclorutas_4',
-            onEachFeature: pop_Jerarquizacion_ciclorutas_4,
-            style: style_Jerarquizacion_ciclorutas_4_0,
-        });
-        bounds_group.addLayer(layer_Jerarquizacion_ciclorutas_4);
-        map.addLayer(layer_Jerarquizacion_ciclorutas_4);
+     
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
